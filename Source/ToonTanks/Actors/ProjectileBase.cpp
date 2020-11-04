@@ -32,8 +32,11 @@ void AProjectileBase::BeginPlay()
 
 void AProjectileBase::OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit)
 {
+	UE_LOG(LogTemp, Warning, TEXT("On hit!"));
 	AActor* MyOwner = GetOwner();
-	if (!MyOwner) { return; }
+	if (!MyOwner) { 
+		UE_LOG(LogTemp, Error, TEXT("NO OWNER!"));
+		return; }
 
 	if (OtherActor && OtherActor != this && OtherActor != MyOwner)
 	{
@@ -44,6 +47,6 @@ void AProjectileBase::OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UP
 			this,
 			DamageType);
 	}
-
+	UE_LOG(LogTemp, Warning, TEXT("Destroying!"));
 	Destroy();
 }
