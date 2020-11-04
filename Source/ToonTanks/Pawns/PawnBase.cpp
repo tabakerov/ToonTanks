@@ -25,7 +25,7 @@ APawnBase::APawnBase()
 
 void APawnBase::RotateTurret(FVector LookAtTarget)
 {
-	FVector LookAtTargetClean = FVector(LookAtTarget.X, LookAtTarget.Y, TurretMesh->GetComponentLocation().Z - TurretMesh->GetComponentLocation().Z);
+	FVector LookAtTargetClean = FVector(LookAtTarget.X, LookAtTarget.Y, TurretMesh->GetComponentLocation().Z);
 	FVector StartLocation = TurretMesh->GetComponentLocation();
 	FRotator TurretRotation = FVector(LookAtTargetClean - StartLocation).Rotation();
 	TurretMesh->SetWorldRotation(TurretRotation);
