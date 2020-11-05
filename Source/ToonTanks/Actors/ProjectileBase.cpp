@@ -51,6 +51,7 @@ void AProjectileBase::OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UP
 			DamageType);
 		UGameplayStatics::PlaySoundAtLocation(this, HitSound, GetActorLocation());
 		UGameplayStatics::SpawnEmitterAtLocation(this, HitParticle, GetActorLocation());
+		GetWorld()->GetFirstPlayerController()->ClientPlayCameraShake(HitShake);
 		Destroy();
 	}
 	
