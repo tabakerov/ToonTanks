@@ -45,6 +45,8 @@ void AProjectileBase::OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UP
 			MyOwner->GetInstigatorController(),
 			this,
 			DamageType);
+		UGameplayStatics::SpawnEmitterAtLocation(this, HitParticle, GetActorLocation());
+		Destroy();
 	}
-	Destroy();
+	
 }
